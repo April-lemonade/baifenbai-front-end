@@ -32,9 +32,9 @@
         <div style="display: flex;flex-direction: row;position:relative;">
           <div style="width: 90%;font-weight: bold;font-size: 18px;margin-top: 5%">阅卷进度</div>
           <img src="../../../assets/example_paper.png"
-               style="position: absolute;top:0;right:0;transform: rotate(270deg);width: 10%"/>
+               style="position: absolute;top:0;right:0;transform: rotate(270deg);width: 10%;z-index:2"/>
         </div>
-        <div id="progress" style="width:100%;height:300px "></div>
+        <el-card id="progress" style="width:100%;height:300px;box-shadow:none;border:none; "></el-card>
       </div>
     </div>
     <div

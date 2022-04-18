@@ -64,18 +64,22 @@ export default {
   },
   methods: {
     login() {
-      let that = this
-      this.$axios.get('http://121.196.198.132:7002/user/auth/login', {
-        account: that.loginForm.username,
-        pwd: that.loginForm.password
-      }).then(res => {
+    
+      console.log(this.loginForm.username)
+      console.log(this.loginForm.password)
+      this.$axios.get('http://121.196.198.132:7002/user/auth/login', {params:{
+        account: this.loginForm.username,
+        pwd: this.loginForm.password
+      }}).then(res => {
+        
         if (res.code == 200) {
+          sessionStorage.setItem('token',res.data.token)
           if (res.data.role == 3) {
-            that.$router.push('/admin/home')
+            this.$router.push('/admin/home')
           } else if (res.data.role == 1) {
-            that.$router.push('/student/home')
+            this.$router.push('/student/home')
           } else if (res.data.role == 2) {
-            that.$router.push('/teacher/home')
+            this.$router.push('/teacher/home')
           }
         } else {
           console.log(res.data.data)

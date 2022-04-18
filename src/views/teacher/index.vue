@@ -7,9 +7,23 @@
           style="display:flex;align-content:center;justify-content:space-around;height:40px;width:250px;align-items:center;margin-right:40px">
         <img src='../../assets/inform_icon.svg' style="width:25px;height:30px;"><img src="../../assets/task_icon.svg"
                                                                                      style="width:40px;height:30px;">
-        <div style="width:45px;height:45px;border-radius:50%;background: #016fa0;color:white;font-family: 'Arial Normal', 'Arial', sans-serif;
+       <el-dropdown
+    placement="bottom"
+    trigger="hover"
+    size="default"
+  >
+      <div style="width:45px;height:45px;border-radius:50%;background: #016fa0;color:white;font-family: 'Arial Normal', 'Arial', sans-serif;
   font-weight: 700;text-align:center;line-height:45px;font-size:25px">A
         </div>
+    <template #dropdown>
+    <div style="height:50px;width:80px;display:flex;justify-content:center;align-items:center">
+          <el-button style="color:grey" type="text" size="large" @click="logout">
+      退出登入
+    </el-button>
+    </div>
+    </template>
+  
+  </el-dropdown>
       </div>
     </el-header>
     <el-container>
@@ -64,7 +78,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods:{
+     logout(){
+      sessionStorage.removeItem('token')
+      this.$router.push("/login")
+    }
+  }
+}
 </script>
 
 <style>

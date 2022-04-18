@@ -32,7 +32,6 @@ axios.interceptors.response.use(success => {
 })
 
 let base = 'http://121.196.198.132:7002';
-let Authorization = 'eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX3R5cGUiOjMsImNyZWF0ZWQiOjE2NTAxODMxMTMwMTEsInVzZXJfYWNjb3VudCI6ImFkbWluIiwiZXhwIjoxNjUxMzkyNzEzfQ.-99ylqmo3KrzgI33b4UIm-IawxnVcFj7s3E_1eEjv8R36VMQpmCECrzra6k7tHft8_LFkUqg1NwsTz7q_OycKA';
 
 export const postKeyValueRequest = (url, params) => {
   return axios({
@@ -48,7 +47,7 @@ export const postKeyValueRequest = (url, params) => {
     }],
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization' : Authorization
+      'Authorization' : sessionStorage.getItem('token')
     }
   });
 }
@@ -59,7 +58,7 @@ export const postRequest = (url, params) => {
     data: params,
     headers: {
       // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization' : Authorization
+      'Authorization' :  sessionStorage.getItem('token')
     }
   })
 }
@@ -70,7 +69,7 @@ export const putRequest = (url, params) => {
     data: params,
     headers: {
       // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization' : Authorization
+      'Authorization' :  sessionStorage.getItem('token')
     }
   })
 }
@@ -81,7 +80,7 @@ export const getRequest = (url, params) => {
     params: params,
     headers: {
       // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization' : Authorization
+      'Authorization' :  sessionStorage.getItem('token')
     }
   })
 }
@@ -92,7 +91,7 @@ export const deleteRequest = (url, params) => {
     params: params,
     headers: {
       // 'Content-Type': 'application/x-www-form-urlencoded',
-      'Authorization' : Authorization
+      'Authorization' : sessionStorage.getItem('token')
     }
   })
 }

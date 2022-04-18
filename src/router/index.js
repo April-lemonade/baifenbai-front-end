@@ -4,6 +4,11 @@ import LoginIndex from '../views/login/index.vue'
 
 const routes = [
   {
+    path:'',
+    redirect:"/login"
+
+  },
+  {
     path: '/',
     name: 'Home',
     component: Home
