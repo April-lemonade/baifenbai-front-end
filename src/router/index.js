@@ -50,6 +50,18 @@ const routes = [
     component: () => import('../views/student/index.vue'),
     children: [
       {
+        path:'grade/detail',
+        name:'student_grade',
+        component: () => import('../views/student/grade/grade_detail.vue')
+
+      },
+      {
+        path:'grade',
+        name:'student_grade',
+        component: () => import('../views/student/grade/grade.vue')
+
+      },
+      {
         path: 'home',
         name: 'student_home',
         component: () => import('../views/student/home.vue')
@@ -61,13 +73,8 @@ const routes = [
         name: 'student_examination',
         component: () => import('../views/student/examination.vue')
 
-      },
-      {
-        path: 'grade',
-        name: 'student_grade',
-        component: () => import('../views/student/grade.vue')
-
       }
+    
     ]
 
   },
@@ -172,6 +179,36 @@ const routes = [
     name: 'teacher',
     component: () => import('../views/teacher/index.vue'),
     children: [
+      {
+        path: "grade/detail",
+        component: () => import('../views/teacher/grade/grade_detail.vue'),
+        name: "teacher_grade_detail"
+
+      },
+      {
+        path: "grade",
+        component: () => import('../views/teacher/grade/grade.vue'),
+        name: "teacher_grade"
+
+      },
+      {
+        path: "questionset/addquestion",
+        component: () => import("../views/teacher/questionset/add_question.vue"),
+        name: "teacher_questionset_addquestion"
+
+      },
+      {
+        path: 'questionset/allquestion',
+        component: () => import('../views/teacher/questionset/allquestion.vue'),
+        name: "teacher_questionset_allquestion"
+
+      },
+      {
+        path: "questionset",
+        component: () => import('../views/teacher/questionset/questionset.vue'),
+        name: "teacher_questionset"
+
+      },
       {
         path: 'home',
         component: () => import('../views/teacher/home.vue')
